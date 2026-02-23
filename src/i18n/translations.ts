@@ -17,7 +17,7 @@ export const translations = {
     about: {
       label: "Sobre",
       title: "Quem sou eu",
-      bio1: `Sou um desenvolvedor Backend, no qual busco cada vez mais me aprofundar nos conceitos de Backend + DevOps, gosto bastante de estruturar códigos em que tragam uma boa perfomance ao produto. Atualmente estudante no IFPE, onde desenvolvo soluções reais para problemas reais.`,
+      bio1: `Sou um desenvolvedor Backend, no qual busco cada vez mais me aprofundar nos conceitos de Backend + DevOps, gosto bastante de estruturar códigos que tragam uma boa perfomance ao produto. Atualmente estudante no IFPE, onde desenvolvo soluções reais para problemas reais.`,
       bio1Highlight: "IFPE",
       bio2: "Tenho experiência com arquitetura de microsserviços, filas de mensagens, containerização com Docker e orquestração com Kubernetes, sempre buscando escrever código limpo e escalável.",
       skillCategories: {
