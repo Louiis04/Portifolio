@@ -1,38 +1,40 @@
 import { Button } from "@/components/Button/Button"
 import { Badge } from "@/components/Badge/Badge"
+import { useLanguage } from "@/context/LanguageContext"
 
 const stack = ["Node.js", "PHP", "Laravel", "PostgreSQL", "Docker", "Kubernetes", "React"]
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="w-full py-28 md:py-36">
       <div className="mx-auto max-w-4xl px-6">
         <div className="flex flex-col gap-7">
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">Backend Developer</Badge>
-            <span className="text-xs text-zinc-700">disponível para oportunidades</span>
+            <span className="text-xs text-zinc-700">{t.hero.available}</span>
           </div>
 
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl font-semibold tracking-tight text-zinc-100 sm:text-5xl leading-tight">
-              Olá, eu sou o Luís
+              {t.hero.greeting}
             </h1>
             <p className="text-lg text-zinc-500 font-normal">
-              Construo sistemas backend eficientes e escaláveis.
+              {t.hero.subtitle}
             </p>
           </div>
 
           <p className="max-w-lg text-sm text-zinc-500 leading-relaxed">
-            Fissurado em desenvolver APIs, microsserviços e sistemas de alta performance.
-            Trabalho com PHP, Laravel, Node.js, Docker e muito mais.
+            {t.hero.description}
           </p>
 
           <div className="flex flex-wrap gap-3 pt-1">
             <Button asChild>
-              <a href="#projects">Ver projetos</a>
+              <a href="#projects">{t.hero.viewProjects}</a>
             </Button>
             <Button variant="outline" asChild>
-              <a href="#contact">Contato</a>
+              <a href="#contact">{t.hero.contact}</a>
             </Button>
           </div>
 

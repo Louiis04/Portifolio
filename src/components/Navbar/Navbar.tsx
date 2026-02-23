@@ -1,3 +1,6 @@
+import { useLanguage } from "@/context/LanguageContext"
+import type { Language } from "@/i18n/translations"
+
 function Logo() {
   return (
     <svg
@@ -17,7 +20,14 @@ function Logo() {
   )
 }
 
+const flags: { lang: Language; label: string; emoji: string }[] = [
+  { lang: "pt", label: "Português", emoji: "🇧🇷" },
+  { lang: "en", label: "English", emoji: "🇺🇸" },
+]
+
 export default function Navbar() {
+  const { t, language, setLanguage } = useLanguage()
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-800/60 bg-zinc-950/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
@@ -26,14 +36,32 @@ export default function Navbar() {
         </a>
         <nav className="flex items-center gap-7 text-sm text-zinc-500">
           <a href="#about" className="hover:text-zinc-200 transition-colors duration-200">
-            Sobre
+            {t.nav.about}
           </a>
           <a href="#projects" className="hover:text-zinc-200 transition-colors duration-200">
-            Projetos
+            {t.nav.projects}
           </a>
           <a href="#contact" className="hover:text-zinc-200 transition-colors duration-200">
-            Contato
+            {t.nav.contact}
           </a>
+
+          <div className="flex items-center gap-1 border border-zinc-800 rounded-lg p-0.5 bg-zinc-900/60">
+            {flags.map(({ lang, label, emoji }) => (
+              <button
+                key={lang}
+                onClick={() => setLanguage(lang)}
+                aria-label={label}
+                title={label}
+                className={`rounded-md px-2 py-1 text-sm transition-all duration-200 leading-none ${
+                  language === lang
+                    ? "bg-zinc-700 text-zinc-100 shadow-sm"
+                    : "text-zinc-600 hover:text-zinc-300 hover:bg-zinc-800"
+                }`}
+              >
+                {emoji}
+              </button>
+            ))}
+          </div>
         </nav>
       </div>
     </header>

@@ -2,12 +2,14 @@ import { ExternalLink } from "lucide-react"
 import { Badge } from "@/components/Badge/Badge"
 import type { Project } from "@/types/Project"
 import { useEffect, useRef, useState } from "react"
+import { useLanguage } from "@/context/LanguageContext"
 
 interface CardProjectProps {
   project: Project
 }
 
 export default function CardProject({ project }: CardProjectProps) {
+  const { t, language } = useLanguage()
   const containerRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -39,7 +41,7 @@ export default function CardProject({ project }: CardProjectProps) {
           />
         ) : (
           <span className="text-xs text-zinc-600 select-none">
-            Adicione uma imagem ao projeto
+            {t.projects.noImage}
           </span>
         )}
       </div>
@@ -52,7 +54,7 @@ export default function CardProject({ project }: CardProjectProps) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Ver ${project.title} no GitHub`}
+            aria-label={`${t.projects.viewOn} ${project.title}`}
             className="shrink-0 text-zinc-600 hover:text-zinc-300 transition-colors"
           >
             <ExternalLink size={14} />
@@ -60,7 +62,7 @@ export default function CardProject({ project }: CardProjectProps) {
         </div>
 
         <p className="text-xs text-zinc-500 leading-relaxed line-clamp-3">
-          {project.description}
+          {language === "en" ? project.descriptionEn : project.description}
         </p>
 
         <div className="flex flex-wrap gap-1.5 pt-1">

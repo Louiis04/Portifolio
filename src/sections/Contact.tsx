@@ -1,18 +1,20 @@
 import { Github, Mail, Linkedin } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="w-full py-24 border-t border-zinc-800/60">
       <div className="mx-auto max-w-4xl px-6">
         <div className="flex flex-col gap-12">
           <div className="flex flex-col gap-1.5">
             <span className="text-[11px] text-zinc-600 uppercase tracking-widest font-medium">
-              Contato
+              {t.contact.label}
             </span>
-            <h2 className="text-2xl font-semibold text-zinc-100">Vamos conversar</h2>
+            <h2 className="text-2xl font-semibold text-zinc-100">{t.contact.title}</h2>
             <p className="text-sm text-zinc-500 max-w-md leading-relaxed mt-1">
-              Estou aberto a oportunidades, parcerias ou só uma conversa sobre tecnologia.
-              Me chame.
+              {t.contact.description}
             </p>
           </div>
 
@@ -56,7 +58,7 @@ export default function Contact() {
           </div>
 
           <p className="text-xs text-zinc-800 pt-4">
-            © {new Date().getFullYear()} Luís. Todos os direitos reservados.
+            © {new Date().getFullYear()} Luís. {t.contact.rights}
           </p>
         </div>
       </div>
