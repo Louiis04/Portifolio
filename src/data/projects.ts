@@ -1,5 +1,7 @@
 import type { Project } from '../types/Project';
 
+const base = import.meta.env.BASE_URL
+
 export const projects: Project[] = [
     {
         title: `Sistema de Requerimento do Estudante - SRE`,
@@ -7,7 +9,7 @@ export const projects: Project[] = [
         descriptionEn: `System developed to manage student requests, unifying and simplifying academic processes. SRE is a platform that allows students to submit and track their requests efficiently, providing a smoother and more organized experience.`,
         technologies: [`Laravel`, `PHP`, `TailwindCSS`, `MySQL`, `Livewire`, `Docker`, `Queue` ],
         link: `https://github.com/Timeless-inc/Quebec`,
-        image: `/images/sre.gif`
+        image: `${base}images/sre.gif`
     },
     {
         title: `Charlie E-commerce`,
@@ -15,7 +17,7 @@ export const projects: Project[] = [
         descriptionEn: `E-commerce project developed to bring visibility to small entrepreneurs in the Igarassu region.`,
         technologies: [`Next.js`, `TypeScript`, `TailwindCSS`, `Prisma`, `PostgreSQL`, `Stripe`, `Clerk`, `Shadcn UI`],
         link: `https://github.com/KaueLui/Charlie`,
-        image: `/images/charlie1.gif`
+        image: `${base}images/charlie1.gif`
     },
     {
         title: `MangoAI`,
@@ -23,7 +25,7 @@ export const projects: Project[] = [
         descriptionEn: `Chatbot project developed to help IFPE students get information about the campus, courses and events. MangoAI is an interactive tool that uses artificial intelligence to provide fast and accurate answers, improving communication between students and the institution.`,
         technologies: [`Next.js`, `TypeScript`, `TailwindCSS`, `Prisma`, `PostgreSQL`, `MetaAI`, `Shadcn UI`],
         link: `https://github.com/Timeless-inc/Tango`,
-        image: `/images/mango.gif`
+        image: `${base}images/mango.gif`
     },
     {
         title: `SpaceType`,
@@ -31,6 +33,6 @@ export const projects: Project[] = [
         descriptionEn: `Typing game project developed to help students improve their typing skills in a fun and interactive way. SpaceType is a game that challenges players to type words and phrases quickly, providing an engaging and educational experience.`,
         technologies: [`Svelte`, `JavaScript`, `Css`, `HTML`],
         link: `https://github.com/Louiis04/Jogo-de-digitar`,
-        image: `/images/spacetype.gif`
+        image: `${base}images/spacetype.gif`
     }
 ]
