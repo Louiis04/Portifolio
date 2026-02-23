@@ -1,19 +1,39 @@
 import { ExternalLink } from "lucide-react"
 import { Badge } from "@/components/Badge/Badge"
 import type { Project } from "@/types/Project"
+import { useEffect, useRef, useState } from "react"
 
 interface CardProjectProps {
   project: Project
 }
 
 export default function CardProject({ project }: CardProjectProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 transition-colors hover:border-zinc-700">
       {/* Image area */}
-      <div className="aspect-video w-full overflow-hidden bg-zinc-800/60 flex items-center justify-center">
+      <div
+        ref={containerRef}
+        className="aspect-video w-full overflow-hidden bg-zinc-800/60 flex items-center justify-center"
+      >
         {project.image ? (
           <img
-            src={project.image}
+            src={isVisible ? project.image : ""}
             alt={project.title}
             className="h-full w-full object-cover"
           />
