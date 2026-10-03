@@ -33,6 +33,6 @@ export const projects: Project[] = [
         descriptionEn: `Typing game project developed to help students improve their typing skills in a fun and interactive way. SpaceType is a game that challenges players to type words and phrases quickly, providing an engaging and educational experience.`,
         technologies: [`Svelte`, `JavaScript`, `Css`, `HTML`],
         link: `https://github.com/Louiis04/Jogo-de-digitar`,
-        image: `${base}images/spacetype.gif`
+        image: `${base}images/spacetype.webp`
     }
 ]
